@@ -42,6 +42,13 @@ Frontend: http://localhost:3000/
 Backend: http://localhost:8000/
 ```
 
+Note: Run Django migrations with
+
+```
+docker compose run -p 8000:8000 backend sh
+/app/backend # sh -c "python manage.py migrate"
+```
+
 ## Infrastructure
 #### Frontend 
 - Typescript, React
