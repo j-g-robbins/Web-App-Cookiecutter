@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build and tag backend Docker image
+      working-directory: ./backend
+      run: docker build . --file Dockerfile --tag my-backend-image:$(date +%s)
+
+    - name: Build and tag frontend Docker image
+      working-directory: ./frontend
+      run: docker build . --file Dockerfile --tag my-frontend-image:$(date +%s)
+
+    - name: Deploy with docker-compose
+      run: docker-compose up -d

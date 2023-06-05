@@ -21,9 +21,14 @@ cd webapp-quickstart
 3. Populate the .env file with secret values:
 
 ```
+# python shell
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
+
+# .env
 SECRET_KEY='...'
-DB_PASSWORD='postgres'
 ```
+
 4. Run the app:
 
 ```
