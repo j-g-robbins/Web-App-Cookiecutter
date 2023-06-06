@@ -1,8 +1,8 @@
-name: Conventional Commits
+name: Commit Checks
 
 on:
   pull_request:
-    branches: [master]
+    branches: [ "main" ]
     types: [opened, edited, synchronize]
 
 jobs:
